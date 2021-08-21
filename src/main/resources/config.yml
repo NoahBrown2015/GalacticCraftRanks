@@ -1,20 +1,20 @@
 Ensign:
   prefix: '&9&lEnsign '
-  cost: 0
+  cost: 0.00
   default: true
 Corporal:
   prefix: '&2&lCorporal '
-  cost: 10000
+  cost: 10000.00
   default: false
 Sergeant:
   prefix: '&a&lSergeant '
-  cost: 30000
+  cost: 30000.00
   default: false
 Chief:
   prefix: '&e&lChief '
-  cost: 90000
+  cost: 90000.00
   default: false
 Veteran:
   prefix: '&6&lVeteran '
-  cost: 270000
+  cost: 270000.00
   default: false
