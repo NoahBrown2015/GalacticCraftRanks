@@ -11,10 +11,12 @@ public class Rankup {
     }
 
     public static void execute(Player p, String[] args) {
+        //   Checks for permissions
         if (!main.util.permCheck(p,"galacticraftranks.rankup")) {
             main.util.sendMessage(p,"&c[GalacticraftRanks] You do not have permission to use this command!");
             return;
         }
+        //   Gets player's current rank
         String group;
         for (String Group : main.getPermissions().getPlayerGroups(p)) {
             if (!main.Ranks.contains(Group)) {
@@ -23,10 +25,15 @@ public class Rankup {
             group = Group;
         }
         //   Get next rank from player's current
-        //   Check if player has enough money
-        //   Remove money from player
-        //   Remove current rank from player
-        //   Give new rank to player
-        //   Announce rankup to the server
+        //   Checks if player has enough money to purchase next rank
+
+        //   Removes money from player
+
+        //   Removes current rank from player
+
+        //   Gives new rank to player
+
+        //   Announces rankup to the server
+
     }
 }
