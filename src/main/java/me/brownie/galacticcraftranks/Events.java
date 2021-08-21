@@ -1,4 +1,4 @@
-package me.brownie.galacticraftranks;
+package me.brownie.galacticcraftranks;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -10,15 +10,15 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 public class Events implements Listener {
 
-    private static GalacticraftRanks main;
-    public Events(GalacticraftRanks Main) {
+    private static GalacticCraftRanks main;
+    public Events(GalacticCraftRanks Main) {
         this.main = Main;
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (label.equalsIgnoreCase("ranks") || label.equalsIgnoreCase("rankup")) {
             if (sender instanceof Player) return false;
-            sender.sendMessage("[GalacticraftRanks] This command is only available in-game!");
+            sender.sendMessage("[GalacticCraftRanks] This command is only available in-game!");
             return true;
         }
         return false;

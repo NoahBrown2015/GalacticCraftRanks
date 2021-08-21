@@ -1,7 +1,7 @@
-main: me.brownie.galacticraftranks.GalacticraftRanks
-name: GalacticraftRanks
+main: me.brownie.galacticcraftranks.GalacticCraftRanks
+name: GalacticCraftRanks
 author: NoahBrown2015
-version: 1.0
+version: 1.1
 api-version: 1.15
 depend: [ Vault ]
 

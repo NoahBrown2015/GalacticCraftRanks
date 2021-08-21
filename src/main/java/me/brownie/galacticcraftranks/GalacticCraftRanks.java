@@ -1,7 +1,7 @@
-package me.brownie.galacticraftranks;
+package me.brownie.galacticcraftranks;
 
-import me.brownie.galacticraftranks.Commands.Ranks;
-import me.brownie.galacticraftranks.Commands.Rankup;
+import me.brownie.galacticcraftranks.Commands.Ranks;
+import me.brownie.galacticcraftranks.Commands.Rankup;
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-public final class GalacticraftRanks extends JavaPlugin implements Listener {
+public final class GalacticCraftRanks extends JavaPlugin implements Listener {
 
     private static final Logger log = Logger.getLogger("Minecraft");
     private static Economy econ = null;

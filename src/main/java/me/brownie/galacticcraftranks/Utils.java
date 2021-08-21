@@ -1,12 +1,12 @@
-package me.brownie.galacticraftranks;
+package me.brownie.galacticcraftranks;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 public class Utils {
 
-    private GalacticraftRanks main;
-    public Utils(GalacticraftRanks Main) {
+    private GalacticCraftRanks main;
+    public Utils(GalacticCraftRanks Main) {
         this.main = Main;
     }
 
@@ -15,7 +15,7 @@ public class Utils {
     }
 
     public boolean permCheck(Player p, String perm) {
-        if (!p.hasPermission(perm) && !p.hasPermission("galacticraftranks.*") && !p.hasPermission("*") && !p.isOp()) return false;
+        if (!p.hasPermission(perm) && !p.hasPermission("galacticcraftranks.*") && !p.hasPermission("*") && !p.isOp()) return false;
         return true;
     }
 
