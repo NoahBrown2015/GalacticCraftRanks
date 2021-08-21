@@ -15,7 +15,16 @@ public class Ranks {
             main.util.sendMessage(p,"&c[GalacticraftRanks] You do not have permission to use this command!");
             return;
         }
-        //   Get a list of all ranks
-        //   Send a message to the player containing them all and their price.
+        String previous = "";
+        for (String rank : main.getConfig().getKeys(false)) {
+            if (main.getConfig().getBoolean(rank + ".default")) {
+                main.util.sendMessage(p,"&6[GalacticraftRanks] " + main.getConfig().getString(rank + ".prefix") + "&b&a>> &r&3(&aDefault&3)");
+                previous = rank;
+                continue;
+            }
+            String price = "&r&3(&a " + main.getConfig().getDouble(rank + ".cost") + "&3)";
+            main.util.sendMessage(p,previous + " &a&b>> " + main.getConfig().getString(rank + ".prefix") + price);
+            previous = rank;
+        }
     }
 }
