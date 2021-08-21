@@ -30,6 +30,7 @@ public final class GalacticraftRanks extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
+        //   Vault setup
         if (!setupEconomy() ) {
             log.severe(String.format("[%s] - Disabled due to no Vault dependency found!", getDescription().getName()));
             getServer().getPluginManager().disablePlugin(this);
@@ -37,18 +38,16 @@ public final class GalacticraftRanks extends JavaPlugin implements Listener {
         }
         setupPermissions();
         setupChat();
+        //   Registers listeners
         this.getServer().getPluginManager().registerEvents(events,this);
+        //   Adds all ranks in the config onto the server using vault
         for (String rank : getConfig().getKeys(false)) {
             Ranks.add(rank.toLowerCase());
+            getChat().setGroupPrefix("world",rank,getConfig().getString(rank + ".prefix"));
         }
-        setDefaultRank();
     }
 
-    @Override
-    public void onDisable() {
-        log.info(String.format("[%s] Disabled Version %s", getDescription().getName(), getDescription().getVersion()));
-    }
-
+    //   Vault setup
     private boolean setupEconomy() {
         if (getServer().getPluginManager().getPlugin("Vault") == null) {
             return false;
@@ -60,17 +59,20 @@ public final class GalacticraftRanks extends JavaPlugin implements Listener {
         econ = rsp.getProvider();
         return econ != null;
     }
+    //   Vault setup
     private boolean setupChat() {
         RegisteredServiceProvider<Chat> rsp = getServer().getServicesManager().getRegistration(Chat.class);
         chat = rsp.getProvider();
         return chat != null;
     }
+    //   Vault setup
     private boolean setupPermissions() {
         RegisteredServiceProvider<Permission> rsp = getServer().getServicesManager().getRegistration(Permission.class);
         perms = rsp.getProvider();
         return perms != null;
     }
 
+    //   Access vault api
     public static Economy getEconomy() {
         return econ;
     }
@@ -79,13 +81,5 @@ public final class GalacticraftRanks extends JavaPlugin implements Listener {
     }
     public static Chat getChat() {
         return chat;
-    }
-
-    public void setDefaultRank() {
-        for (String g : getConfig().getKeys(false)) {
-            if (getConfig().getBoolean(g + ".default")) {
-                defaultRank = g;
-            }
-        }
     }
 }
