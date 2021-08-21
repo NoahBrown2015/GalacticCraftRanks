@@ -30,6 +30,7 @@ public final class GalacticraftRanks extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
+        saveDefaultConfig();
         //   Vault setup
         if (!setupEconomy() ) {
             log.severe(String.format("[%s] - Disabled due to no Vault dependency found!", getDescription().getName()));
@@ -45,6 +46,11 @@ public final class GalacticraftRanks extends JavaPlugin implements Listener {
             Ranks.add(rank.toLowerCase());
             getChat().setGroupPrefix("world",rank,getConfig().getString(rank + ".prefix"));
         }
+    }
+
+    @Override
+    public void onDisable() {
+        saveConfig();
     }
 
     //   Vault setup
