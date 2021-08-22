@@ -20,7 +20,7 @@ public final class GalacticCraftRanks extends JavaPlugin implements Listener {
     private static Permission perms = null;
     private static Chat chat = null;
 
-    public Utils util;
+    public Utils util = new Utils(this);
     public Ranks rank;
     public Rankup rankup;
     public Events events = new Events(this);
@@ -45,6 +45,9 @@ public final class GalacticCraftRanks extends JavaPlugin implements Listener {
         for (String rank : getConfig().getKeys(false)) {
             Ranks.add(rank.toLowerCase());
             getChat().setGroupPrefix("world",rank,getConfig().getString(rank + ".prefix"));
+            if (getConfig().getInt(rank + ".priority") == 0) {
+                defaultRank = rank;
+            }
         }
     }
 
