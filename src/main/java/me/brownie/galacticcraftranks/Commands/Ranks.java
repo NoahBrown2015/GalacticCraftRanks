@@ -17,8 +17,8 @@ public class Ranks {
         }
         String previous = "";
         for (String rank : main.getConfig().getKeys(false)) {
-            if (main.getConfig().getBoolean(rank + ".default")) {
-                main.util.sendMessage(p,"&6[GalacticCraftRanks] " + main.getConfig().getString(rank + ".prefix") + "&b&a>> &r&3(&aDefault&3)");
+            if (main.getConfig().getInt(rank + ".default") == 0) {
+                main.util.sendMessage(p,"&6[GalacticCraftRanks] " + main.getConfig().getString(rank + ".prefix") + "&r&3(&aDefault&3)");
                 previous = rank;
                 continue;
             }
