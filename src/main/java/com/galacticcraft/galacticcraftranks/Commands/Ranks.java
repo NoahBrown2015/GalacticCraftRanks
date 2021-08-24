@@ -1,6 +1,6 @@
-package me.brownie.galacticcraftranks.Commands;
+package com.galacticcraft.galacticcraftranks.Commands;
 
-import me.brownie.galacticcraftranks.GalacticCraftRanks;
+import com.galacticcraft.galacticcraftranks.GalacticCraftRanks;
 import org.bukkit.entity.Player;
 
 public class Ranks {

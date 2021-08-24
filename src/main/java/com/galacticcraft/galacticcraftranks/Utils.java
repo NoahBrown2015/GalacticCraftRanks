@@ -1,4 +1,4 @@
-package me.brownie.galacticcraftranks;
+package com.galacticcraft.galacticcraftranks;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -15,8 +15,7 @@ public class Utils {
     }
 
     public boolean permCheck(Player p, String perm) {
-        if (!p.hasPermission(perm) && !p.hasPermission("galacticcraftranks.*") && !p.hasPermission("*") && !p.isOp()) return false;
-        return true;
+        return p.hasPermission(perm) || p.hasPermission("galacticcraftranks.*") || p.hasPermission("*") || p.isOp();
     }
 
     public boolean hasRank(Player p) {
