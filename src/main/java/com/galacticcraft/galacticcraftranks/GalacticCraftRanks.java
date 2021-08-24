@@ -1,7 +1,7 @@
-package me.brownie.galacticcraftranks;
+package com.galacticcraft.galacticcraftranks;
 
-import me.brownie.galacticcraftranks.Commands.Ranks;
-import me.brownie.galacticcraftranks.Commands.Rankup;
+import com.galacticcraft.galacticcraftranks.Commands.Ranks;
+import com.galacticcraft.galacticcraftranks.Commands.Rankup;
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
@@ -10,12 +10,14 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 public final class GalacticCraftRanks extends JavaPlugin implements Listener {
 
-    private static final Logger log = Logger.getLogger("Minecraft");
+    static final Logger log = Logger.getLogger("Minecraft");
     private static Economy econ = null;
     private static Permission perms = null;
     private static Chat chat = null;
@@ -26,6 +28,7 @@ public final class GalacticCraftRanks extends JavaPlugin implements Listener {
     public Events events = new Events(this);
 
     public List<String> Ranks = new ArrayList<>();
+    public Map<Integer,String> rankPriority = new HashMap<>();
     String defaultRank;
 
     @Override
@@ -48,6 +51,7 @@ public final class GalacticCraftRanks extends JavaPlugin implements Listener {
             if (getConfig().getInt(rank + ".priority") == 0) {
                 defaultRank = rank;
             }
+            rankPriority.put(getConfig().getInt(rank + ".priority"),rank);
         }
     }
 

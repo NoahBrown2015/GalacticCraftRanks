@@ -1,6 +1,6 @@
-package me.brownie.galacticcraftranks.Commands;
+package com.galacticcraft.galacticcraftranks.Commands;
 
-import me.brownie.galacticcraftranks.GalacticCraftRanks;
+import com.galacticcraft.galacticcraftranks.GalacticCraftRanks;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -25,13 +25,16 @@ public class Rankup {
             }
             group = Group;
         }
-        //   Get next rank from player's current
+        //   Checks if player has reached max rank
         String nextGroup = "";
-
-        /*
-        Can't quite figure this part out :|
-         */
-
+        int i = main.getConfig().getInt(group + ".priority");
+        i++;
+        if (main.rankPriority.get(i) == null) {
+            main.util.sendMessage(p,"&c[GalacticCraftRanks] You have already reached the highest rank!");
+            return;
+        }
+        //   Get next rank from player's current
+        nextGroup = main.rankPriority.get(i);
         //   Checks if player has enough money to purchase next rank
         double price = main.getConfig().getDouble(nextGroup + ".cost");
         if (!main.getEconomy().has(p,price)) {
